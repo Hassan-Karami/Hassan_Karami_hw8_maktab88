@@ -34,12 +34,7 @@ userData.forEach((user,index)=>{
         userRow.style.backgroundColor="#C9C9C9";
     }
     //create row Number cell
-    rowNumberCell = document.createElement("td");
-    rowNumberCell.className="rowNumberCell";
-  
-     rowNumberText= document.createTextNode(index+1);
-     rowNumberCell.appendChild(rowNumberText);
-     userRow.appendChild(rowNumberCell);
+
 
     //import user info from userData to table 
     Object.values(user).forEach(value=>{
@@ -106,20 +101,25 @@ function sortByColumn(table,n){
         }
       }
     }
+    
 
 }
-sortByColumn(table, 2);
-let rowLength= tableBody.rows.length;
-console.log(rowLength);
 
+
+/*add backgroundcolor and rowNumber to rows */
+let rowLength= tableBody.rows.length;
 for(let i=0;i<rowLength;i++){
   let nRow= tableBody.rows[i];
   let firstCellOfRow= nRow.insertCell(0);
   firstCellOfRow.innerHTML= i+1;
+  if((i+1)%2==0){
+    nRow.style.backgroundColor="#C9C9C9"
+  }
+  else nRow.style.backgroundColor="white";
+
 }
-let firtstRow= tableBody.rows[0];
-let firstCell= firtstRow.insertCell(0);
-firstCell.innerHTML="1";
+
+
 
 
 
