@@ -91,11 +91,3 @@ const userData = [
 	},
 ];
 
-
-
-let cat=["hasan","ali"];
-let dog= {
-    pet:"dog",
-    fname:"hasan",
-    age:43
-}

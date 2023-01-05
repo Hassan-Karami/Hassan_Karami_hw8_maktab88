@@ -8,6 +8,60 @@
   <title>Document</title>
 </head>
 <body>
+  <div id="modal"></div>
+
+  
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+  
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div>     <label for="">UID:</label>
+        <input id="uidInput" type="text">
+      </div>
+
+      <div>
+        <label for="">First Name:</label>
+        <input id="fNameInput" type="text">
+      </div>
+
+      <div>
+        <label for="">Last Name:</label>
+        <input id="lNameInput" type="text">
+      </div>
+
+      <div>
+        <label for="">City:</label>
+        <input id="cityInput" type="text">
+      </div>
+
+      <div>
+        <label for="">Postal Code:</label>
+      <input id="PocoInput" type="text">
+      </div>
+
+      <div>
+        <label for="">Phone Number:</label>
+        <input id="PhNumberInput" type="text">
+      </div>
+
+      <div>
+        <label for="">Position:</label>
+        <input id="positionInput" type="text">
+      </div>
+      <div id="modal-buttons">
+        <button id="update-btn">Update</button>
+        <button id="delete-btn">Delete</button>
+        <button id="cancel-btn">Cancel</button>
+
+      </div>
+
+    </div>
+
+  </div>
+  
+  
   <script src="./testUserData.js"></script>
   <script src="./test.js"></script>
 </body>
