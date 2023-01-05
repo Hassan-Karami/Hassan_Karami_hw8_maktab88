@@ -1,7 +1,8 @@
-function createTable(userDataArray, headerListArray) {
-  let body = document.querySelector("body");
+let body = document.querySelector("body");
+function createTable(parent,userDataArray, headerListArray) {
+   parent = document.querySelector(parent);
   let table = document.createElement("table");
-  body.appendChild(table);
+  parent.appendChild(table);
   let thead = document.createElement("thead");
   let tbody = document.createElement("tbody");
   let th = document.createElement("th");
@@ -39,8 +40,6 @@ function tableHeaderCreator(headerArray) {
   return headerRow;
 }
 
-let body = document.querySelector("body");
-
 body.addEventListener("dblclick", (e) => {
   if (e.target.tagName === "TD") {
     let targetUid =
@@ -55,7 +54,7 @@ body.addEventListener("dblclick", (e) => {
       let PhNumberInput = document.getElementById("PhNumberInput");
       let positionInput = document.getElementById("positionInput");
 
-      //modal section appears after dbclicking on "td" and input user information into it.
+      //modal section appears after dbclicking on "td" and  user information goes into it.
       modal.style.display = "block";
       uidInput.value = userObject["uid"];
       fNameInput.value = userObject["firstname"];
@@ -72,7 +71,20 @@ body.addEventListener("dblclick", (e) => {
       let updateBtn = document.getElementById("update-btn");
       let deleteBtn = document.getElementById("delete-btn");
       let cancelBtn = document.getElementById("cancel-btn");
-      updateBtn.addEventListener("click", function () {});
+      //buttons click treatment
+      updateBtn.addEventListener("click", function () {
+        updateBtn.innerHTML="SUBMIT";
+        updateBtn.style.backgroundColor="red";
+        updateBtn.style.color="white";
+        deleteBtn.style.display="none";
+        for(let i=1;i<allModalInputs.length;i++){
+            allModalInputs[i].removeAttribute("readonly");
+            allModalInputs[i].style.border="red 1px solid";
+        }
+      });
+      cancelBtn.addEventListener("click", function(){
+        modal.style.display="none";
+      })
     }
   }
 });
@@ -161,4 +173,4 @@ headers = [
   "Phone Number",
   "Position",
 ];
-createTable(userData, headers);
+createTable("body",userData, headers);
