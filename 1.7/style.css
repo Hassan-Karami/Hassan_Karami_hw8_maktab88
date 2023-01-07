@@ -73,6 +73,20 @@ th,td{
     border-radius: 2px;
 
   }
+  .update-class{
+    padding:8px 16px ;
+    font-size: 18px;
+    border: none;
+    border-radius: 2px;
+  }
+  .submit-class{
+    padding:8px 16px ;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    background-color: red;
+    color: white;
+  }
   #modal-buttons button:hover{
     background-color: #888;
     color: white;

@@ -1,6 +1,6 @@
 let body = document.querySelector("body");
-function createTable(parent,userDataArray, headerListArray) {
-   parent = document.querySelector(parent);
+function createTable(parent, userDataArray, headerListArray) {
+  parent = document.querySelector(parent);
   let table = document.createElement("table");
   parent.appendChild(table);
   let thead = document.createElement("thead");
@@ -39,12 +39,22 @@ function tableHeaderCreator(headerArray) {
   }
   return headerRow;
 }
+headers = [
+  "Row",
+  "UID",
+  "First Name",
+  "Last Name",
+  "City",
+  "Postal Code",
+  "Phone Number",
+  "Position",
+];
+createTable("body", userData, headers);
 
 body.addEventListener("dblclick", (e) => {
   if (e.target.tagName === "TD") {
     let targetUid =
       +e.target.parentElement.getElementsByTagName("TD")[1].innerText;
-    if (!!targetUid) {
       let userObject = userData.find((item) => item.uid === targetUid);
       let uidInput = document.getElementById("uidInput");
       let fNameInput = document.getElementById("fNameInput");
@@ -73,21 +83,48 @@ body.addEventListener("dblclick", (e) => {
       let cancelBtn = document.getElementById("cancel-btn");
       //buttons click treatment
       updateBtn.addEventListener("click", function () {
-        updateBtn.innerHTML="SUBMIT";
-        updateBtn.style.backgroundColor="red";
-        updateBtn.style.color="white";
-        deleteBtn.style.display="none";
-        for(let i=1;i<allModalInputs.length;i++){
-            allModalInputs[i].removeAttribute("readonly");
-            allModalInputs[i].style.border="red 1px solid";
+        updateBtn.innerHTML = "Submit";
+        updateBtn.className="submit-class";
+        deleteBtn.style.display="none"
+        for (let i = 1; i < allModalInputs.length; i++) {
+          allModalInputs[i].removeAttribute("readonly");
+          allModalInputs[i].style.border = "red 1px solid";
         }
+      
+
+        let sc=document.querySelector(".submit-class");
+        sc.addEventListener("click",   function(){
+          this.className='update-class';
+          this.innerHTML="Update";
+          allModalInputs.forEach(input=>{
+            input.style.border="none";
+            input.setAttribute("readonly", true);
+          })
+         let x= returnModifiedUserObject(+uidInput.value,fNameInput.value, lNameInput.value,cityInput.value,PocoInput.value, PhNumberInput.value, positionInput.value );
+        
+        })
+
       });
-      cancelBtn.addEventListener("click", function(){
+      
+      
+      cancelBtn.addEventListener("click", function () {
         modal.style.display="none";
-      })
-    }
+        allModalInputs.forEach((input)=>{
+          input.setAttribute("readonly", true);
+          input.style.border="none";
+        })
+        deleteBtn.style.display="block";
+        updateBtn.innerHTML="Update";
+        updateBtn.className="update-class"
+        
+      });
+
+    
   }
+  //end of if click on td 
+
 });
+//end of dblclick addeventlistener
 
 const create = (newUser) => {
   if (typeof newUser !== "object" || Array.isArray(newUser) || newUser === null)
@@ -163,14 +200,17 @@ window.onclick = function (event) {
   }
 };
 
-headers = [
-  "Row",
-  "UID",
-  "First Name",
-  "Last Name",
-  "City",
-  "Postal Code",
-  "Phone Number",
-  "Position",
-];
-createTable("body",userData, headers);
+
+
+
+const returnModifiedUserObject= function(mUid,mFirstName,mLastname,mCity,mPostalCode,mPhoneNumber, mPosition){
+  return {
+    uid: mUid,
+    firstname: mFirstName,
+    lastname: mLastname,
+    city: mCity,
+    postalCode: mPostalCode,
+    phoneNumber: mPhoneNumber,
+    position: mPosition
+  }
+}
