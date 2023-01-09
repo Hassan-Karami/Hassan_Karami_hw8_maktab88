@@ -52,19 +52,19 @@ th,td{
     position: relative;
 
   }
-  .modal-content label{
+  .modal-content label , .label{
     font-weight: bold;
     padding: 5px 16px;
     
   }
 
-  .modal-content input{
+  .modal-content input , .inp{
     padding: 5px 16px;
     border: none;
     border: #888 solid 1px;
     font-size: 16px;
   }
-  #modal-buttons{
+  #modal-buttons, .modal-buttons{
     margin-top: 20px;
   }
   .btn{

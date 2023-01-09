@@ -103,6 +103,9 @@ body.addEventListener("dblclick", function (e) {
   }
 
   
+  document.getElementById("add-user").addEventListener("click",(e)=>{
+    
+  })
 
   body.addEventListener("click", function (event) {
     
