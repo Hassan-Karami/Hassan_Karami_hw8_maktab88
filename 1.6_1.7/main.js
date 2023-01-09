@@ -188,11 +188,12 @@ body.addEventListener("dblclick", function (e) {
 });
 
 //end of dblclick addeventlistener
-let addBtn= document.getElementById("add-user");
-addBtn.addEventListener("click", (e)=>{
-  updateBtn.style.display='none';
 
-})
+// let addBtn= document.getElementById("add-user");
+// addBtn.addEventListener("click", (e)=>{
+//   updateBtn.style.display='none';
+
+// })
 
 const create = (newUser) => {
   if (typeof newUser !== "object" || Array.isArray(newUser) || newUser === null)
