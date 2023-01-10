@@ -93,6 +93,7 @@ body.addEventListener("dblclick", function (e) {
     positionInput.value = userObject["position"];
 
     }
+    
     modal.style.display = "block";
     importOriginalData();
     
@@ -102,10 +103,6 @@ body.addEventListener("dblclick", function (e) {
     });
   }
 
-  
-  document.getElementById("add-user").addEventListener("click",(e)=>{
-    
-  })
 
   body.addEventListener("click", function (event) {
     
@@ -161,6 +158,8 @@ body.addEventListener("dblclick", function (e) {
         allModalInputs[i].style.border = "red 1px solid";
       }
      } 
+
+  
      
       if(clickedElement.innerHTML=== "SUBMIT") {
       submitBtn.style.display="noen";
@@ -191,6 +190,15 @@ body.addEventListener("dblclick", function (e) {
 });
 
 //end of dblclick addeventlistener
+
+// document.getElementById("add-user-btn").addEventListener("click",(e)=>{
+//   console.log("lkjljljl");
+  
+//   let addUserModal= document.getElementById("add-user-modal");
+//   addUserModal.style.display="block";
+  
+  
+// })
 
 // let addBtn= document.getElementById("add-user");
 // addBtn.addEventListener("click", (e)=>{
@@ -373,3 +381,10 @@ function sortAscending(data, title) {
 
 
 
+body.addEventListener("click", (e)=>{
+  if(e.target.className==="add-user-btn"){
+    let gh= document.getElementById("add-user-modal");
+    gh.style.display="block";
+
+  }
+})

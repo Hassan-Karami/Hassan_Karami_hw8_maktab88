@@ -25,7 +25,7 @@ th,td{
     text-align: center;
 }
 /* The Modal (background) */
-.modal {
+.modal, .add-user-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -40,7 +40,7 @@ th,td{
   }
   
   /* Modal Content */
-  .modal-content {
+  .modal-content, .add-user-modal-content {
     background-color: #7589c2;
     margin: auto;
     padding: 50px;
@@ -67,7 +67,7 @@ th,td{
   #modal-buttons, .modal-buttons{
     margin-top: 20px;
   }
-  .btn{
+  .btn , .create-btn{
     padding:8px 16px ;
     font-size: 16px;
     border: none;
@@ -116,7 +116,7 @@ th,td{
     color: white;
     border-radius: 4px;
   }
-  #add-user{
+  #add-user-btn{
     width: 70px;
     height: 70px;
     border-radius: 100%;
@@ -134,11 +134,13 @@ th,td{
   
   
   }
-  #add-user:hover{
+  #add-user-btn:hover{
       background-color:green;
       color: white;
       cursor: pointer;
   }
+
+  
   #table-container{
     margin-top: 100px;
   }
